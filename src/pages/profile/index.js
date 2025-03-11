@@ -7,13 +7,13 @@ import {
   Avatar,
   Image,
   Button,
-  Input,
-} from "@chakra-ui/react";
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getProfile, updateUserProfile } from "@redux/slices/user";
-import PasswordForm from "@components/profile/password-form";
-import ProfileForm from "@components/profile/info-form";
+  Input
+} from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getProfile, updateUserProfile } from '@redux/slices/user';
+import PasswordForm from '@components/profile/password-form';
+import ProfileForm from '@components/profile/info-form';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -52,9 +52,9 @@ const Profile = () => {
     const formData = new FormData();
 
     if (binaryImage && selectedFile) {
-      const fileExtension = selectedFile.name.split(".").pop();
+      const fileExtension = selectedFile.name.split('.').pop();
       const uniqueFileName = `profile_${Date.now()}.${fileExtension}`;
-      formData.append("image", binaryImage, uniqueFileName);
+      formData.append('image', binaryImage, uniqueFileName);
     }
 
     for (const key in data) {
@@ -74,27 +74,16 @@ const Profile = () => {
       <Heading size="lg" mb={6}>
         User Profile
       </Heading>
-      <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
+      <Grid templateColumns={{ base: '1fr', md: '1fr 2fr' }} gap={6}>
         <VStack spacing={6} align="center" w="full">
           <VStack spacing={4}>
             {profilePic ? (
-              <Image
-                src={profilePic}
-                alt="Profile"
-                w="100px"
-                h="100px"
-                borderRadius="full"
-              />
+              <Image src={profilePic} alt="Profile" w="100px" h="100px" borderRadius="full" />
             ) : (
               <Avatar size="2xl" />
             )}
             <Box position="relative">
-              <Button
-                as="label"
-                htmlFor="file-upload"
-                colorScheme="blue"
-                size="sm"
-              >
+              <Button as="label" htmlFor="file-upload" colorScheme="blue" size="sm">
                 Upload Photo
               </Button>
               <Input
